@@ -1,11 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class UIScript : MonoBehaviour
 {
     public GameObject spherePrefab;
     public AudioSource ambientNoise;
+
+    public PostProcessVolume ppvolume;
+
+    private ColorGrading colorgrading = null;
+    private DepthOfField dof = null;
+    private Grain grain = null;
+    private ChromaticAberration chromaticAbberation = null;
+
+    private void Start()
+    {
+        ppvolume.profile.TryGetSettings(out colorgrading);
+        ppvolume.profile.TryGetSettings(out dof);
+        ppvolume.profile.TryGetSettings(out grain);
+        ppvolume.profile.TryGetSettings(out chromaticAbberation);
+    }
 
     public void ToggleSFX()
     {
@@ -43,6 +59,22 @@ public class UIScript : MonoBehaviour
         {
             ambientNoise.volume = 0.0f;
         }
+    }
+
+    public void ToggleChromaticAberration()
+    {
+        chromaticAbberation.enabled.value = !chromaticAbberation.enabled.value;
+        grain.enabled.value = !grain.enabled.value;
+    }
+
+    public void ToggleDOF()
+    {
+        dof.enabled.value = !dof.enabled.value;
+    }
+
+    public void ToggleColorGrading()
+    {
+        colorgrading.enabled.value = !colorgrading.enabled.value;
     }
 
 
