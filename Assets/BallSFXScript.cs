@@ -12,6 +12,7 @@ public class BallSFXScript : MonoBehaviour
     private void Start()
     {
         isOn = true;
+        Destroy(gameObject, 15f);
     }
 
     private void OnCollisionEnter(Collision collision)
