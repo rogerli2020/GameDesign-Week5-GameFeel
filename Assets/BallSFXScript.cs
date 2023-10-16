@@ -14,6 +14,7 @@ public class BallSFXScript : MonoBehaviour
     {
         isOn = true;
         Destroy(gameObject, sphereLifeTime);
+        gameObject.GetComponent<BallImpactEffect>().dustEffect = GameObject.Find("DustEffect").GetComponent<ParticleSystem>();
     }
 
     private void OnCollisionEnter(Collision collision)
