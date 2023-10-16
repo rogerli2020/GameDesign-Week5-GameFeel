@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4157014464143895882}
   - component: {fileID: 4317685917911545570}
   - component: {fileID: 6965835517296435293}
+  - component: {fileID: 7454846601767944731}
   m_Layer: 3
   m_Name: SpherePrefab
   m_TagString: Sphere
@@ -154,6 +155,9 @@ MonoBehaviour:
   impactForceThresh: 20
   impactMultiplier: 1
   offsetAmount: 1
+  crackSpritePrefab: {fileID: 0}
+  minScale: 1
+  maxScale: 3
 --- !u!82 &4157014464143895882
 AudioSource:
   m_ObjectHideFlags: 0
@@ -362,6 +366,19 @@ MonoBehaviour:
   hitGroundAudioSource: {fileID: 4157014464143895882}
   rollingAudioSource: {fileID: 4157014464143895882}
   isOn: 0
+  sphereLifeTime: 25
+--- !u!114 &7454846601767944731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322209470509666313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfbd943962e73c409f01fd25c609cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8344944274640584679
 GameObject:
   m_ObjectHideFlags: 0
