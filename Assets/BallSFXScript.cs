@@ -8,11 +8,12 @@ public class BallSFXScript : MonoBehaviour
     public AudioSource hitGroundAudioSource;
     public AudioSource rollingAudioSource;
     public bool isOn;
+    public float sphereLifeTime = 25f;
 
     private void Start()
     {
         isOn = true;
-        Destroy(gameObject, 15f);
+        Destroy(gameObject, sphereLifeTime);
     }
 
     private void OnCollisionEnter(Collision collision)
