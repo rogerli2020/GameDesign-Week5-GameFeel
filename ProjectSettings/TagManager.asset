@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Sphere
+  - Impactable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Sphere
   - Water
   - UI
   - PostProcessing

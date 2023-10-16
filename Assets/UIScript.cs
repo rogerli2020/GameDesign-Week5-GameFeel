@@ -16,14 +16,23 @@ public class UIScript : MonoBehaviour
     private Grain grain = null;
     private ChromaticAberration chromaticAbberation = null;
 
+    private BallImpactEffect ballImpactScript;
+
     private bool sfxOn;
 
     private void Start()
     {
+        GameObject sphereObject = GameObject.FindGameObjectWithTag("Sphere");
+        Debug.Log(sphereObject);
+        ballImpactScript = sphereObject.GetComponent<BallImpactEffect>();
+        Debug.Log(ballImpactScript);
+
         ppvolume.profile.TryGetSettings(out colorgrading);
         ppvolume.profile.TryGetSettings(out dof);
         ppvolume.profile.TryGetSettings(out grain);
         ppvolume.profile.TryGetSettings(out chromaticAbberation);
+
+        
 
         sfxOn = true;
     }
@@ -94,6 +103,11 @@ public class UIScript : MonoBehaviour
         colorgrading.enabled.value = !colorgrading.enabled.value;
     }
 
+    public void ToggleCracking()
+    {
+        ballImpactScript.ToggleCracking();
+    }
+
 
     public void SpawnBall()
     {
@@ -101,6 +115,7 @@ public class UIScript : MonoBehaviour
         if (!sfxOn)
         {
             newSphere.GetComponent<BallSFXScript>().TurnOffSFX();
+            ballImpactScript = newSphere.GetComponent<BallImpactEffect>();
         }
     }
 }
