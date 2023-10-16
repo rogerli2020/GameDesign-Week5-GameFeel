@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/RogerTest.unity
+    guid: 1867c12e946804f3fb9d08587a9dae58
   m_configObjects: {}

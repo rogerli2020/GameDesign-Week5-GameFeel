@@ -17,14 +17,14 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   colored:
-    overrideState: 0
+    overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 0.15
-  size:
-    overrideState: 0
     value: 1
+  size:
+    overrideState: 1
+    value: 1.5
   lumContrib:
     overrideState: 0
     value: 0.8
@@ -92,7 +92,7 @@ MonoBehaviour:
     value: 55
   aperture:
     overrideState: 1
-    value: 2.5
+    value: 2
   focalLength:
     overrideState: 1
     value: 150

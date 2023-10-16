@@ -7,6 +7,7 @@ public class UIScript : MonoBehaviour
 {
     public GameObject spherePrefab;
     public AudioSource ambientNoise;
+    public Camera mainCamera;
 
     public PostProcessVolume ppvolume;
 
@@ -40,12 +41,23 @@ public class UIScript : MonoBehaviour
 
     public void ToggleParticlesEffect()
     {
+        GameObject dustEffectObject = GameObject.Find("DustEffect");
+        bool isOn = dustEffectObject.transform.localScale.x != 0;
+        if (isOn)
+        {
+            dustEffectObject.transform.localScale = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            dustEffectObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+
 
     }
 
     public void ToggleCameraShake()
     {
-
+        mainCamera.GetComponent<CameraShake>().enabled = !mainCamera.GetComponent<CameraShake>().enabled;
     }
 
 
