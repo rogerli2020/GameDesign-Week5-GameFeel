@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65f14ba102fa3e418f5a116c22ecb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustEffect: {fileID: 0}
+  dustEffect: {fileID: 4256966827203014994, guid: e513b1078818f4ccb96d40a1ebc46c61, type: 3}
   impactForceThresh: 20
   impactMultiplier: 1
   offsetAmount: 1
