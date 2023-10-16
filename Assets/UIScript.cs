@@ -16,25 +16,30 @@ public class UIScript : MonoBehaviour
     private Grain grain = null;
     private ChromaticAberration chromaticAbberation = null;
 
+    private bool sfxOn;
+
     private void Start()
     {
         ppvolume.profile.TryGetSettings(out colorgrading);
         ppvolume.profile.TryGetSettings(out dof);
         ppvolume.profile.TryGetSettings(out grain);
         ppvolume.profile.TryGetSettings(out chromaticAbberation);
+
+        sfxOn = true;
     }
 
     public void ToggleSFX()
     {
+        sfxOn = !sfxOn;
         foreach (GameObject sphere in GameObject.FindGameObjectsWithTag("Sphere"))
         {
             BallSFXScript BallSFXController = sphere.GetComponent<BallSFXScript>();
-            if (BallSFXController.isOn)
-            {
-                BallSFXController.TurnOffSFX();
-            } else
+            if (sfxOn)
             {
                 BallSFXController.TurnOnSFX();
+            } else
+            {
+                BallSFXController.TurnOffSFX();
             }
         }
     }
@@ -92,6 +97,10 @@ public class UIScript : MonoBehaviour
 
     public void SpawnBall()
     {
-        Instantiate(spherePrefab);
+        GameObject newSphere = Instantiate(spherePrefab);
+        if (!sfxOn)
+        {
+            newSphere.GetComponent<BallSFXScript>().TurnOffSFX();
+        }
     }
 }
