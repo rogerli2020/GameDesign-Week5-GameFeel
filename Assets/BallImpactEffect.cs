@@ -8,9 +8,12 @@ public class BallImpactEffect : MonoBehaviour
     public float impactForceThresh = 1;
     public float impactMultiplier = 1;
     public float offsetAmount = 1;
+    CameraShake cameraShake;
+
 
     private void Start()
     {
+        cameraShake = Camera.main.GetComponent<CameraShake>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,6 +25,10 @@ public class BallImpactEffect : MonoBehaviour
 
         if (impactForce > impactForceThresh) // Adjust this threshold as needed
         {
+            if (cameraShake != null) 
+            {
+                cameraShake.TriggerShake();
+            }
             // The point of impact
             ContactPoint contact = collision.contacts[0];
             Vector3 offsetPosition = contact.point + (contact.normal * offsetAmount);
